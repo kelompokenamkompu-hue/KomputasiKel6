@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaga Laut dari Kerusakan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<div id="hud">
+  <div class="stat-card">
+    <div class="stat-row"><span class="stat-icon">🏆</span><span class="stat-label">Skor</span><span class="stat-val" id="sv-score">0</span></div>
+    <div class="stat-row"><span class="stat-icon">🐟</span><span class="stat-label">Ikan</span><span class="stat-val" id="sv-fish">100</span></div>
+    <div class="stat-row"><span class="stat-icon">☣️</span><span class="stat-label">Polusi</span><span class="stat-val" id="sv-poll">0%</span></div>
+    <div class="eco-row"><span class="eco-label">🌿 Eco</span><div id="eco-track"><div id="eco-fill"></div></div></div>
+  </div>
+</div>
+<div id="timer-box"><div id="timer-lbl">WAKTU</div><div id="timer">02:00</div></div>
+<div id="combo-box"></div>
+<button id="inv-btn">🎒 Tangkapan</button>
+<div id="inv-panel"></div>
+
+<div id="mob-ctrl">
+  <div class="mob-btn" id="ml">◀</div>
+  <div class="mob-btn mob-catch" id="mc">🪝</div>
+  <div class="mob-btn" id="mr">▶</div>
+</div>
+
+<div class="screen" id="menu">
+  <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+    <canvas id="mc2" style="position:absolute;opacity:.4"></canvas>
+  </div>
+  <div class="ocean-title"> MENJAGA LAUT</div>
+  <div class="ocean-sub">Selamatkan Samudra dari Polusi!</div>
+  <div class="instr-box">
+    <div class="instr-row"><span class="key-badge">← →</span> Gerakkan kapal</div>
+    <div class="instr-row"><span class="key-badge">Space</span> Turunkan / tarik kail</div>
+    <div class="instr-row"> Tangkap <b>sampah</b> → poin + kurangi polusi</div>
+    <div class="instr-row"> Jangan tangkap ikan! → -poin</div>
+    <div class="instr-row"> Hindari bom! → -50 poin</div>
+    <div class="instr-row"> Combo berantai = poin berkali lipat!</div>
+  </div>
+  <button class="play-btn" onclick="startGame()">MULAI BERMAIN</button>
+</div>
+
+<div class="screen off" id="gameover">
+  <div id="go-title"></div>
+  <div id="go-rating"></div>
+  <div class="go-card">
+    <div class="go-stat">Skor Akhir: <span id="gf-score">0</span></div>
+    <div class="go-stat">Populasi Ikan: <span id="gf-fish">0</span></div>
+    <div class="go-stat">Polusi: <span id="gf-poll">0</span>%</div>
+    <div class="go-stat">Sampah Dibersihkan: <span id="gf-trash">0</span></div>
+  </div>
+  <button class="play-btn" onclick="resetGame()">MAIN LAGI</button>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
